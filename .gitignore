@@ -1,0 +1,25 @@
+.DS_Store
+node_modules/
+client/dist/
+client/dist-active/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/test/unit/coverage/
+coverage/*
+.nyc_output/
+core/@config/config.development.json
+core/@config/config.production.json
+core/@config/config.*.json
+
+config/config.development.json
+config/config.production.json
+config/config.*.json
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

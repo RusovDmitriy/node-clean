@@ -1,0 +1,12 @@
+{
+  "dataSources": {
+    "sequelize": {
+      "host": "127.0.0.1",
+      "port": 5432,
+      "database": "project_name",
+      "username": "username",
+      "password": "password",
+      "dialect": "postgres"
+    }
+  }
+}

@@ -10,7 +10,14 @@ const schema = {
     required: true,
     email: true
   },
-  password: String
+  password: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true
+  }
 }
 
 const User = attributes(schema)(

@@ -20,10 +20,10 @@ module.exports = ({ sequelize }) => {
         type: STRING,
         allowNull: false
       },
-      // role: {
-      //   type: INTEGER,
-      //   allowNull: false
-      // },
+      role: {
+        type: STRING,
+        allowNull: false
+      },
       // status: {
       //   type: INTEGER,
       //   allowNull: false

@@ -1,14 +1,19 @@
-const User = require('../../../entities/user/User')
+const SequelizeMapper = require('../SequelizeMapper')
 
-const SequelizeUserMapper = {
+class SequelizeUserMapper extends SequelizeMapper {
+  constructor({ User }) {
+    super()
+    this.User = User
+  }
+
   toEntity({ dataValues }) {
-    const { id, email } = dataValues
-    return new User({ id, email })
-  },
+    const { id, email, role } = dataValues
+    return new this.User({ id, email, role })
+  }
 
   toDatabase(survivor) {
-    const { email, password } = survivor
-    return { email, password }
+    const { email, password, role } = survivor
+    return { email, password, role }
   }
 }
 

@@ -1,16 +1,8 @@
 class WebServer {
   constructor(cradle) {
-    const { graphQLSchema, config } = cradle
+    const { config } = cradle
     const express = require('express')
-    const { ApolloServer } = require('apollo-server-express')
-
-    const server = new ApolloServer({
-      schema: graphQLSchema,
-      formatError(error) {
-        delete error.extensions
-        return error
-      }
-    })
+    const server = require('./graphql-server')(cradle)
 
     const app = express()
     app.set('port', process.env.PORT || config.get('server:port') || 3000)

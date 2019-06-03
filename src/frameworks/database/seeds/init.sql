@@ -4,6 +4,7 @@ CREATE TABLE public.users(
 	id serial NOT NULL,
 	email varchar(256) NOT NULL,
 	password varchar(64) NOT NULL,
+	role varchar(16) NOT NULL,
 	created timestamp NOT NULL,
 	updated timestamp NOT NULL,
 	CONSTRAINT users_pk PRIMARY KEY (id)

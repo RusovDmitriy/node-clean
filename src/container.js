@@ -23,16 +23,24 @@ module.exports = config => {
 
   // Repositories
   container.register({
-    usersRepository: asFunction(
-      require('./interface-adapters/repositories/users/SequelizeUsersRepository')
-    ).singleton(),
-    graphQLSchema: asFunction(require('./interface-adapters/graphql')).singleton()
+    usersRepository: asFunction(require('./interface-adapters/repositories/users/SequelizeUsersRepository')).singleton()
+  })
+
+  // GraphQL
+  container.register({
+    graphQLSchema: asFunction(require('./interface-adapters/graphql/schema')).singleton()
+  })
+
+  container.register({
+    JwtAccessTokenManager: asClass(require('./interface-adapters/JwtAccessTokenManager')).singleton()
   })
 
   // Operations
+
   container.register({
-    getUser: asClass(require('./use-cases/users/GetUser')),
-    createUser: asClass(require('./use-cases/users/CreateUser'))
+    Errors: asValue(require('./use-cases/Errors')),
+    getUser: asClass(require('./use-cases/users/GetUser')).singleton(),
+    createUser: asClass(require('./use-cases/users/CreateUser')).singleton()
   })
 
   // Entites

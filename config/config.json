@@ -1,4 +1,9 @@
 {
+  "auth": {
+    "jwt": {
+      "secret": "0d00141887c31020da712493a122687d7edb78f17acb828f7b8ece8504eea161"
+    }
+  },
   "dataSources": {
     "sequelize": {
       "host": "127.0.0.1",

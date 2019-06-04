@@ -3,7 +3,7 @@ module.exports = cradle => {
   const { applyMiddleware } = require('graphql-middleware')
 
   const helpers = {
-    entitiesToFields: require('./helpers/entitiesToFields')
+    // entitiesToFields: require('./helpers/entitiesToFields')
   }
 
   const types = {}

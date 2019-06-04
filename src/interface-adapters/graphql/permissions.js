@@ -14,12 +14,12 @@ module.exports = () => {
   })
 
   return shield({
-    Query: {
-      user: and(isAuthenticated, or(isAdmin, isModerator))
-    },
-    Mutation: {
-      createUser: isAuthenticated
-    },
-    user: isAuthenticated
+    // Query: {
+    //   user: and(isAuthenticated, or(isAdmin, isModerator))
+    // },
+    // Mutation: {
+    //   createUser: isAuthenticated
+    // },
+    // user: isAuthenticated
   })
 }

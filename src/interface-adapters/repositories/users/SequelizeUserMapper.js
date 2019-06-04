@@ -7,13 +7,13 @@ class SequelizeUserMapper extends SequelizeMapper {
   }
 
   toEntity({ dataValues }) {
-    const { id, email, role } = dataValues
-    return new this.User({ id, email, role })
+    const { id, email, role, status } = dataValues
+    return new this.User({ id, email, role, status })
   }
 
   toDatabase(survivor) {
-    const { email, password, role } = survivor
-    return { email, password, role }
+    const { email, password, role, status } = survivor
+    return { email, password, role, status }
   }
 }
 

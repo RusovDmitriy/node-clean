@@ -1,5 +1,5 @@
 module.exports = ({ User }, helpers) => {
-  const { GraphQLInputObjectType } = require('graphql')
+  const { GraphQLInputObjectType, GraphQLString } = require('graphql')
 
   return {
     userCreateInput: new GraphQLInputObjectType({
@@ -7,7 +7,12 @@ module.exports = ({ User }, helpers) => {
       description: 'User create input',
       fields() {
         return {
-          ...helpers.entitiesToFields(User)
+          email: {
+            type: GraphQLString
+          },
+          password: {
+            type: GraphQLString
+          }
         }
       }
     })

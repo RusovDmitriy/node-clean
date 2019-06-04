@@ -1,5 +1,5 @@
 module.exports = ({ User }, helpers) => {
-  const { GraphQLObjectType } = require('graphql')
+  const { GraphQLObjectType, GraphQLInt, GraphQLString } = require('graphql')
 
   return {
     user: new GraphQLObjectType({
@@ -7,7 +7,18 @@ module.exports = ({ User }, helpers) => {
       description: 'User entities',
       fields() {
         return {
-          ...helpers.entitiesToFields(User)
+          id: {
+            type: GraphQLInt
+          },
+          email: {
+            type: GraphQLString
+          },
+          role: {
+            type: GraphQLString
+          },
+          status: {
+            type: GraphQLString
+          }
         }
       }
     })

@@ -1,5 +1,6 @@
 module.exports = cradle => {
   const { ApolloServer } = require('apollo-server-express')
+  const depthLimit = require('graphql-depth-limit')
   const { graphQLSchema, JwtAccessTokenManager, getUser, logger } = cradle
 
   return new ApolloServer({
@@ -11,6 +12,7 @@ module.exports = cradle => {
       delete error.extensions
       return error
     },
+    validationRules: [depthLimit(3)],
     context: async ({ req }) => {
       const context = {}
       try {

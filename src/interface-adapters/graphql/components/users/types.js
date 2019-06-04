@@ -1,5 +1,5 @@
-module.exports = ({ User }, helpers) => {
-  const { GraphQLObjectType, GraphQLInt, GraphQLString } = require('graphql')
+module.exports = ({ getAllOrders }, helpers, types) => {
+  const { GraphQLObjectType, GraphQLInt, GraphQLString, GraphQLList } = require('graphql')
 
   return {
     user: new GraphQLObjectType({
@@ -18,6 +18,13 @@ module.exports = ({ User }, helpers) => {
           },
           status: {
             type: GraphQLString
+          },
+          orders: {
+            type: new GraphQLList(types.order),
+            async resolve(obj, args, context, info) {
+              const where = { userId: obj.id }
+              return await getAllOrders.execute({ where })
+            }
           }
         }
       }

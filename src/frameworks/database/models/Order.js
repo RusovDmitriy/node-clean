@@ -4,24 +4,15 @@ module.exports = ({ sequelize }) => {
   const { INTEGER, STRING, DATE } = require('sequelize')
 
   return sequelize.define(
-    'users',
+    'orders',
     {
       id: {
         type: INTEGER,
         autoIncrement: true,
         primaryKey: true
       },
-      email: {
-        type: STRING,
-        allowNull: false,
-        unique: true
-      },
-      password: {
-        type: STRING,
-        allowNull: false
-      },
-      role: {
-        type: STRING,
+      userId: {
+        type: INTEGER,
         allowNull: false
       },
       status: {
@@ -41,7 +32,7 @@ module.exports = ({ sequelize }) => {
       timestamps: true,
       createdAt: 'created',
       updatedAt: 'updated',
-      tableName: 'users'
+      tableName: 'orders'
     }
   )
 }

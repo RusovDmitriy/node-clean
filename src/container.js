@@ -18,12 +18,18 @@ module.exports = config => {
 
   // Models
   container.register({
-    UserModel: asFunction(require('./frameworks/database/models/User')).singleton()
+    UserModel: asFunction(require('./frameworks/database/models/User')).singleton(),
+    OrderModel: asFunction(require('./frameworks/database/models/Order')).singleton()
   })
 
   // Repositories
   container.register({
-    usersRepository: asFunction(require('./interface-adapters/repositories/users/SequelizeUsersRepository')).singleton()
+    usersRepository: asFunction(
+      require('./interface-adapters/repositories/users/SequelizeUsersRepository')
+    ).singleton(),
+    ordersRepository: asFunction(
+      require('./interface-adapters/repositories/orders/SequelizeOrdersRepository')
+    ).singleton()
   })
 
   // GraphQL
@@ -40,12 +46,15 @@ module.exports = config => {
   container.register({
     Errors: asValue(require('./use-cases/Errors')),
     getUser: asClass(require('./use-cases/users/GetUser')).singleton(),
-    createUser: asClass(require('./use-cases/users/CreateUser')).singleton()
+    createUser: asClass(require('./use-cases/users/CreateUser')).singleton(),
+    getAllUsers: asClass(require('./use-cases/users/GetAllUsers')).singleton(),
+    getAllOrders: asClass(require('./use-cases/orders/GetAllOrders')).singleton()
   })
 
   // Entites
   container.register({
-    User: asValue(require('./entities/user/User'))
+    User: asValue(require('./entities/user/User')),
+    Order: asValue(require('./entities/user/Order'))
   })
 
   return container

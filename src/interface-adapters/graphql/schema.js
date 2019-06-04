@@ -8,6 +8,7 @@ module.exports = cradle => {
 
   const types = {}
   Object.assign(types, require('./components/users/types')(cradle, helpers, types))
+  Object.assign(types, require('./components/orders/types')(cradle, helpers, types))
 
   const queries = {}
   Object.assign(queries, require('./components/users/queries')(cradle, helpers, types))

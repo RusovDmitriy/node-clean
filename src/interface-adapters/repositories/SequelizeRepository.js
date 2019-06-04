@@ -21,7 +21,7 @@ class SequelizeRepository {
 
   async getAll(...args) {
     const collection = await this.Model.findAll(...args)
-    return collection.map(this.Mapper.toEntity)
+    return collection.map(item => this.Mapper.toEntity(item))
   }
 
   async getById(id) {

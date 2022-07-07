@@ -22,7 +22,7 @@
     "graphql-shield": "^5.3.5",
     "graphql-type-json": "^0.3.0",
     "jsonwebtoken": "^8.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nconf": "^0.10.0",
     "pg": "^7.11.0",
     "sequelize": "^5.8.7",
